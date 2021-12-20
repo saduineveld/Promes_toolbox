@@ -7,6 +7,7 @@ With v05.0.0 you have the options to approximate the policy function with:
 - Smolyak's algorithm (using code by Rafa Valero);
 - Complete polynomials with monomial basis.
 
+
 To use the toolbox the modeler has to carry out four tasks:
 - supply a model file which computes the Euler equation residuals;
 - set the interval where the policy function should be approximated;
