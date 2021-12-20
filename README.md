@@ -14,6 +14,6 @@ To use the toolbox the modeler has to carry out four tasks:
 - supply an initial guess for the policy function;
 - select an algorithm.
 
-Based on these inputs the toolbox can construct the appropriate grid, and solve the policy function using the selected algorithm. There is also the option to evaluate the policy function, taking the state variables as input.
+Based on these inputs the toolbox constructs the appropriate grid, and solves the policy function using the selected algorithm. The toolbox includes a function that evaluates the policy function, taking the state variables as input.
 
 Further details are explained in the manual. The toolbox and manual include several examples on how to use the toolbox.
