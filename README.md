@@ -2,7 +2,7 @@
 The Promes toolbox solves DSGE models with projection methods, and uses Matlab.
 
 With v05.0.0 you have the options to approximate the policy function with:
-- spline (see Matlab's griddedInterpolant);
+- Spline (see Matlab's griddedInterpolant);
 - Complete Chebyshev polynomial;
 - Smolyak's algorithm (using code by Rafa Valero);
 - Complete polynomials with monomial basis.
