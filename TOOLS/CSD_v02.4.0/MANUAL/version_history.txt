@@ -1,0 +1,12 @@
+CSD v02.3 (09.06.2021):
+- fixed eval_sol_csd for models without exogenous variables;
+- pert_csd_ana_lim for saddle cycle models works for non-invertible systems 
+as well (using InvSubGen instead of InvSub)
+
+CSD v02.4 (11.06.2021):
+- pert_csd_anal_lim gives solution in cell array IF more than one candidate solution exists. (If there is one candidate solution nothing changes).
+
+CSD v02.4.0.a (09.12.2021):
+- changed to standard software version numbering (X.Y.Z.i)
+- added replication of BGP (2020, AER) in examples
+(Note: the code of v02.4.0.a is unchanged compared to v02.4)

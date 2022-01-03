@@ -1,0 +1,255 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Fixed Point Iteration for example models
+\end_layout
+
+\begin_layout Section
+General Fixed Point Iteration
+\end_layout
+
+\begin_layout Standard
+With Fixed Point Iteration we use the old policy to compute all period 
+\begin_inset Formula $t+1$
+\end_inset
+
+ variables.
+ 
+\end_layout
+
+\begin_layout Section
+Deterministic Brock-Mirman model
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:BM_model"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+K_{t+1}+C_{t} & =K_{t}^{\alpha}\label{eq:BM-budget}\\
+\frac{1}{C_{t}} & =\beta\frac{1}{C_{t+1}}\alpha K_{t+1}^{\alpha-1}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+where 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ is consumption in period 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is the discount factor, 
+\begin_inset Formula $K_{t}$
+\end_inset
+
+ is the capital stock at the beginning of the period, and 
+\begin_inset Formula $K_{t}^{\alpha}$
+\end_inset
+
+ is the production function.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Fixed point approximation
+\end_layout
+
+\begin_layout Standard
+Use the old policy to determine 
+\begin_inset Formula $K_{t+1}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{t+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\hat{C}_{t} & =\hat{C}\left(K_{t};\theta^{j-1}\right)\\
+\hat{K}_{t+1} & =K_{t}^{\alpha}-\hat{C}\left(K_{t};\theta^{j-1}\right)\\
+\hat{C}_{t+1} & =\hat{C}\left(\hat{K}_{t+1};\theta^{j-1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, solve the Euler equation for 
+\begin_inset Formula $\hat{C}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\hat{C}_{t} & =\left[\beta\frac{1}{\hat{C}_{t+1}}\alpha K_{t+1}^{\alpha-1}\right]^{-1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Standard RBC model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+C_{t}+K_{t+1} & =Z_{t}K_{t}^{\alpha}H_{t}^{1-\alpha}+\left(1-\delta\right)K_{t}\label{eq:ALM_k}\\
+\chi H_{t}^{\frac{1}{\eta}} & =C_{t}^{-\nu}Z_{t}\left(1-\alpha\right)K_{t}^{\alpha}H_{t}^{-\alpha}\label{eq:lab_sup}\\
+C_{t}^{-\nu} & =\beta E_{t}\left\{ C_{t+1}^{-\nu}\left[Z_{t+1}\alpha K_{t+1}^{\alpha-1}H_{t+1}^{1-\alpha}+1-\delta\right]\right\} \label{eq:RBC_Euler}\\
+z_{t} & =\rho_{z}z_{t-1}+\sigma_{z}\epsilon_{t}\label{eq:TFP}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To compute the 
+\begin_inset Formula $t+1$
+\end_inset
+
+ variables:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\hat{C}_{t}^{j-1} & =\hat{C}\left(K_{t},Z_{t};\theta^{j-1}\right)\\
+H_{t} & =\left[\frac{1-\alpha}{\chi}C_{t}^{-\nu}Z_{t}K_{t}^{\alpha}\right]^{\frac{\eta}{1+\alpha\eta}}\\
+\hat{H}_{t} & =H\left(K_{t},Z_{t},\hat{C}_{t}^{j-1}\right)\\
+K_{t+1} & =Z_{t}K_{t}^{\alpha}H\left(K_{t},Z_{t},C_{t}\right)^{1-\alpha}+\left(1-\delta\right)K_{t}-C_{t}\\
+\hat{K}_{t+1} & =K\left(K_{t},Z_{t},\hat{C}_{t}^{j-1}\right)\\
+\hat{C}_{t+1}^{j-1} & =\hat{C}\left(\hat{K}_{t+1},Z_{t+1};\theta^{j-1}\right)\\
+\hat{H}_{t+1} & =H\left(\hat{K}_{t+1},Z_{t+1},\hat{C}_{t+1}^{j-1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Gauss-Hermite quadrature we can compute:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+C_{t}^{j} & =\left[\beta E_{t}\left\{ \hat{C}_{t+1}^{-\nu}\left[Z_{t+1}\alpha\hat{K}_{t+1}^{\alpha-1}\hat{H}_{t+1}^{1-\alpha}+1-\delta\right]\right\} \right]^{-\frac{1}{\nu}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

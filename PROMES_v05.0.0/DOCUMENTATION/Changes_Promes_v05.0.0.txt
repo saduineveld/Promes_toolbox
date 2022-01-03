@@ -1,0 +1,28 @@
+CHANGES IN PROMES v05.0.0, compared to PROMES v04.3
+(see also Manual)
+
+ADDED OPTIONS:
+- Smolyak algorithm added (uses code by Rafa Valero);
+- complete Chebyshev polynomials with Time Iteration added;
+- allow for anisotropic complete polynomials (ie. asymmetric polynomials).
+
+PERFORMANCE CHANGES:
+- Time Iteration: default tolerance diff_tol changed to 1e-8 (was 1e-6);
+- Time Iteration: changed step_acc to 0.1 in solve_proj (was 0.01);
+- complete polynomials: construction of polynomial more efficient;
+- splines: default interpolation method changed to 'spline' (was 'cubic');
+- default GRID parameters for algorithms added.
+
+OTHER RELEVANT CHANGES:
+- Algorithms: algorithm set in POL.algo (was POL.sol_meth);
+- Algorithms: names changed (also now 8 options, was 5 options);
+- prepgrid: function name changed (was prep_grid);
+- prepgrid: input arguments changed;
+- grid functions: several names of functions, and arguments changed;
+- GRID: several fields changed or added. Most important changes: XX_poly (was XX) and XX_poly_dw (was XX_dw),  poly_elem added;
+- get_pol_var: input spec_opt changed (values 'ini_grid' & 'old_pol' instead of 1 & 2);
+- get_pol_var: requires field GRID.poly_elem for compl. polynomials;
+- solve_proj: fourth input argument changed to options (was opt_display). Options now determines optimoptions for fsolve and lsqnonlin.
+
+
+
