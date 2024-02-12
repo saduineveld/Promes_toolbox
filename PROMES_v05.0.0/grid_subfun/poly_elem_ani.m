@@ -49,14 +49,18 @@ for j=0:max_order
 end  
 
 poly_elem = poly_iso;
+ind_drop=[];
 if size(ord_vec,2) > 1%if ord_vec is scalar then use isotropic polynomial
     if ~(all(ord_vec(:)==ord_vec(1)))%is ord_vec anisotropic?
         %Drop all rows which have ord_ind(:,in) > ord_vec(in)
         for in = 1:nn
-            ind_drop = poly_iso(:,in) > ord_vec(in);
+            ind_drop =[ind_drop poly_iso(:,in) > ord_vec(in)];
             
-            poly_elem(ind_drop,:) = [];%deletes row
-        end        
+            %poly_elem(ind_drop,:) = [];%deletes row
+        end 
+        ind_drop=sum(ind_drop,2);
+        ind_drop=ind_drop>0;
+        poly_elem(ind_drop,:) = [];%deletes rows
     end 
 end    
     
